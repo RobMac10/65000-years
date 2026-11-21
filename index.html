@@ -21,18 +21,20 @@
       <p class="env-sub">How long have people lived here, and how do we know?</p>
     </div>
   </div>
-  <nav class="tabs" role="tablist" aria-label="Sections">
-    <button role="tab" data-tab="opener" aria-selected="true">1. Opener</button>
-    <button role="tab" data-tab="read" aria-selected="false">2. Read</button>
-    <button role="tab" data-tab="ask" aria-selected="false">3. Ask</button>
-    <button role="tab" data-tab="decide" aria-selected="false">4. Decide</button>
-    <button role="tab" data-tab="sleuth" aria-selected="false">5. Super Sleuths <small>(optional)</small></button>
-  </nav>
+
 </header>
+<nav class="jump wrap" aria-label="Sections">
+    <a href="#scale-sec">1. How long?</a>
+    <a href="#walk-sec">2. Time walk</a>
+    <a href="#map-sec">3. Sliding map</a>
+    <a href="#tl-sec">4. Timeline</a>
+    <a href="#read-sec">5. Read, Ask, Decide</a>
+    <a href="#sleuth-sec">6. Super Sleuths</a>
+  </nav>
 
 <main id="main" class="wrap">
 
-<section id="opener" class="panel on" role="tabpanel">
+<section class="opening" id="opener">
   <span class="draft">Draft, pending consultation</span>
   <div class="opener">
     <p>A handful of sand.</p>
@@ -43,10 +45,11 @@
     <p class="big">How long have people lived in Australia?</p>
   </div>
   <div class="care"><strong>Before you start.</strong> This investigation is about the Countries of many First Nations peoples. Each card names whose Country a place is. Some places and stories are not shown, out of respect for the people they belong to.</div>
-  <p class="next"><button type="button" class="btn big" data-goto="read">Start the time walk</button></p>
+  <p class="next"><a class="btn big" href="#scale-sec">Start</a></p>
 </section>
 
-<section id="read" class="panel" role="tabpanel">
+<section class="demo" id="scale-sec">
+  <p class="eyebrow">Step 1</p>
   <h2>How long is 65,000 years?</h2>
   <p>Scientists say people have lived in Australia for at least 65,000 years. Some scientists say about 50,000 to 55,000 years. Pick a way to see it.</p>
   <div class="scale-tabs" role="group" aria-label="Ways to see the time">
@@ -56,26 +59,78 @@
   </div>
   <div class="scale-view" id="scale-view" aria-live="polite"></div>
   <label class="switch"><input type="checkbox" id="use50"> Show it with 50,000 years instead</label>
+  <div class="how">
+    <h3>Try this</h3>
+    <ul>
+      <li>Pick each way of seeing the time. Which one makes 1788 look smallest?</li>
+      <li>Tick the box for 50,000 years. What changes, and what stays almost the same?</li>
+    </ul>
+  </div>
+</section>
 
-  <h2 id="ribbon-head">The time walk</h2>
+<section class="demo" id="walk-sec">
+  <p class="eyebrow">Step 2</p>
+  <h2>The time walk</h2>
   <p>Scroll down. Every block is 1,000 years. The top is the oldest. Tap a photo to make it bigger.</p>
   <div class="ribbon-wrap">
     <div class="counter" id="counter" aria-live="off"><span><b>About 65,000 years ago</b><br><small>Step 1 of 65</small></span><button type="button" class="btn" id="jump-end">Jump to 1788 ↓</button></div>
     <ol class="ribbon" id="ribbon"></ol>
   </div>
+  <div class="how">
+    <h3>Try this</h3>
+    <ul>
+      <li>Stop at one card. Whose Country is the place on?</li>
+      <li>Find a card where scientists do not agree. What do they disagree about?</li>
+    </ul>
+  </div>
+</section>
 
-  <h2 id="map">The shrinking land</h2>
-  <p>Slide or press Play to watch the sea rise.</p>
+<section class="demo" id="map-sec">
+  <p class="eyebrow">Step 3</p>
+  <h2>The sliding map</h2>
+  <span class="draft">Draft, pending consultation</span>
+  <p>Slide or press Play to watch the sea rise around Sahul: Australia, New Guinea and Tasmania joined as one land.</p>
   <div class="mapcard">
     <p class="maplbl" id="maplbl" aria-live="polite"></p>
-    <svg class="mapsvg" id="mapsvg" role="img" aria-label="Map of Australia, New Guinea and Tasmania. The land shrinks as the sea rises."></svg>
-    <div class="mapctl"><button type="button" class="btn" id="mapplay">▶ Play</button><input type="range" id="mapr" min="0" max="4" step="1" value="0" aria-label="Time, from the Ice Age to today"></div>
+    <svg class="mapsvg" id="mapsvg" role="img" aria-label="Map of Australia, New Guinea and Tasmania. The land shrinks as the sea rises. Tap to enlarge."></svg>
+    <div class="mapctl"><button type="button" class="btn" id="mapplay">▶ Play</button><input type="range" id="mapr" min="0" max="3" step="1" value="0" aria-label="Time, from the Ice Age to today"></div>
     <div class="legend"><span><i style="background:#c98f4c"></i>Land at that time</span><span><i style="background:none;border:2px dashed #1d3b4a;height:10px"></i>Coast today</span><span><i style="background:#b3261e;border-radius:50%;width:12px"></i>Places in the time walk</span></div>
-    <p class="small">This map is drawn from today’s sea-floor depths. It shows the idea, not the exact coast at each time.</p>
+    <p class="small">This map is drawn from today’s sea-floor depths. It shows the idea, not the exact coast at each time. Tap the map to make it bigger.</p>
     <p class="src-btns"><a class="src-btn" href="https://www.nma.gov.au/defining-moments/resources/separation-of-tasmania" target="_blank" rel="noopener">National Museum of Australia ↗</a><a class="src-btn" href="https://doi.org/10.1016/j.quascirev.2017.11.030" target="_blank" rel="noopener">Quaternary Science Reviews, 2018 ↗</a><a class="src-btn" href="https://www.ncei.noaa.gov/products/etopo-global-relief-model" target="_blank" rel="noopener">Sea-floor data (NOAA) ↗</a></p>
   </div>
+  <div class="how">
+    <h3>Try this</h3>
+    <ul>
+      <li>Slide the map and say what changes, and when.</li>
+      <li>Stop at one time. What did the rising sea mean for the people living on that land?</li>
+      <li>What can the map not show?</li>
+    </ul>
+  </div>
+</section>
 
-  <h2>What is agreed</h2>
+<section class="demo" id="tl-sec">
+  <p class="eyebrow">Step 4</p>
+  <h2>Put it in order</h2>
+  <span class="draft">Draft, pending consultation</span>
+  <p>Drag the cards into order, oldest at the top. Or use the ▲ ▼ buttons. Then check.</p>
+  <ol class="tl" id="tl" aria-label="Timeline cards"></ol>
+  <p class="tlmsg" id="tlmsg" aria-live="polite"></p>
+  <div class="tools left"><button type="button" class="btn" id="tlcheck">Check my order</button><button type="button" class="btn alt" id="tlshow">Show the order</button><button type="button" class="btn alt" id="tlshuffle">Shuffle again</button></div>
+  <p class="src-btns" style="margin-top:14px"><a class="src-btn" href="https://doi.org/10.1038/nature22968" target="_blank" rel="noopener">Nature, 2017 ↗</a><a class="src-btn" href="https://www.nma.gov.au/defining-moments/resources/mungo-lady" target="_blank" rel="noopener">NMA: Lake Mungo ↗</a><a class="src-btn" href="https://doi.org/10.1038/s41562-020-01041-0" target="_blank" rel="noopener">Nature Human Behaviour, 2021 ↗</a><a class="src-btn" href="https://www.nma.gov.au/defining-moments/resources/separation-of-tasmania" target="_blank" rel="noopener">NMA: Tasmania ↗</a><a class="src-btn" href="https://whc.unesco.org/en/list/1577/" target="_blank" rel="noopener">UNESCO: Budj Bim ↗</a><a class="src-btn" href="https://digital-classroom.nma.gov.au/defining-moments/first-fleet-arrives-sydney-cove" target="_blank" rel="noopener">NMA: First Fleet ↗</a></p>
+  <div class="how">
+    <h3>Try this</h3>
+    <ul>
+      <li>Order the cards from what you have read, before you check.</li>
+      <li>Look at the dates. Where are the biggest gaps?</li>
+    </ul>
+  </div>
+</section>
+
+<section class="demo" id="read-sec">
+  <p class="eyebrow">Step 5</p>
+  <h2>Read, Ask, Decide</h2>
+  <p><strong>How long have people lived in Australia, and how do we know?</strong></p>
+  <h3>1. Read: what is agreed</h3>
   <div class="box">
     <span class="draft">Draft, pending consultation</span>
     <ul>
@@ -85,12 +140,7 @@
       <li>The First Fleet arrived in 1788. That is <span class="since-now"></span> years ago.</li>
     </ul>
   </div>
-  <p class="next"><button type="button" class="btn big" data-goto="ask">Ask the witnesses</button></p>
-</section>
-
-<section id="ask" class="panel" role="tabpanel">
-  <h2>Ask three witnesses</h2>
-  <p>Ask every witness the same three questions.</p>
+  <h3 id="ask-sec">2. Ask: three witnesses, three questions</h3>
   <ol class="qs"><li>1. What did they say they saw?</li><li>2. Could they really have seen it?</li><li>3. Why might they say it?</li></ol>
   <p class="small">The pictures are silhouettes or drawings. No face has been invented. Tap a picture to make it bigger.</p>
 
@@ -121,7 +171,7 @@
   </article>
 
   <article class="witness" id="w-budj">
-    <figure><div id="w-budj-art"></div><figcaption>Drawing of how a stone eel trap works. Not a picture of a real trap.</figcaption></figure>
+    <figure><button type="button" class="zoomart" id="w-budj-art" data-cap="Drawing of how a stone eel trap works. Not a picture of a real trap." aria-label="Drawing of a stone eel trap. Tap to enlarge."></button><figcaption>Drawing of how a stone eel trap works. Not a picture of a real trap.</figcaption></figure>
     <div><span class="draft">Draft, pending consultation</span><h3>The Budj Bim World Heritage listing</h3><p class="role">UNESCO World Heritage Committee · 2019</p>
       <blockquote>“For the Gunditjmara, deep time refers to the idea that they have always been there. From an archaeological perspective, deep time refers to a period of at least 32,000 years that Aboriginal people have lived in the Budj Bim Cultural Landscape.”</blockquote>
       <p class="plain">In plain words: the Gunditjmara say they have always been there. Archaeologists say people have lived there for at least 32,000 years.</p>
@@ -132,11 +182,8 @@
       <label class="field" for="q-budj-why">3. Why might they say it?</label><textarea id="q-budj-why" data-key="q-budj-why" rows="2"></textarea>
     </div>
   </article>
-  <p class="next"><button type="button" class="btn big" data-goto="decide">Make my decision</button></p>
-</section>
-
-<section id="decide" class="panel" role="tabpanel">
-  <h2>My decision</h2>
+  <div id="decide-sec">
+  <h3>3. Decide</h3>
   <div class="box">
     <p><strong>How long have people lived in Australia, and how do we know?</strong></p>
     <fieldset class="choices"><legend>Pick the answer closest to yours.</legend>
@@ -150,13 +197,14 @@
     <textarea id="reason" data-key="reason" rows="5"></textarea>
     <label class="field" for="evidence">One piece of evidence I used</label>
     <textarea id="evidence" data-key="evidence" rows="3"></textarea>
-    <div class="tools"><button type="button" class="btn alt" data-print="decide">Print my decision</button><button type="button" class="btn alt" id="clear">Clear my answers</button></div>
+    <div class="tools"><button type="button" class="btn alt" data-print="decide-sec">Print my decision</button><button type="button" class="btn alt" id="clear">Clear my answers</button></div>
   </div>
   <p class="small">Your answers stay on this device only.</p>
-  <p class="next"><button type="button" class="btn alt big" data-goto="sleuth">Optional: Super Sleuths</button></p>
+  </div>
 </section>
 
-<section id="sleuth" class="panel" role="tabpanel">
+<section class="demo" id="sleuth-sec">
+  <p class="eyebrow">Step 6 · Optional</p>
   <h2>Super Sleuths</h2>
   <p>Optional. Go further only if you want to.</p>
   <details class="sec" open><summary>👣 Make a time walk</summary><div class="body">
@@ -169,7 +217,7 @@
     <p class="src-btns"><a class="src-btn" href="https://doi.org/10.1038/nature22968" target="_blank" rel="noopener">Nature, 2017 ↗</a></p>
   </div></details>
   <details class="sec"><summary>🐝 The wasp-nest clock</summary><div class="body">
-    <div id="sleuth-wasp" style="max-width:520px"></div>
+    <button type="button" class="zoomart" id="sleuth-wasp" style="max-width:520px" data-cap="How the painting was dated. The painting is not shown." aria-label="Diagram. Tap to enlarge."></button>
     <p>Mud wasps build nests on rock walls. Scientists can date tiny bits of old nests. A nest under a painting is older than the painting. A nest on top is younger. That is how the Kimberley kangaroo painting was dated to about 17,300 years ago.</p>
     <p class="src-btns"><a class="src-btn" href="https://doi.org/10.1038/s41562-020-01041-0" target="_blank" rel="noopener">Nature Human Behaviour, 2021 ↗</a><a class="src-btn" href="https://www.unimelb.edu.au/newsroom/news/2021/february/australias-oldest-rock-painting-is-a-kangaroo" target="_blank" rel="noopener">University of Melbourne ↗</a></p>
   </div></details>
@@ -225,6 +273,16 @@
       <a class="src-btn" href="https://commons.wikimedia.org/wiki/File:Budj_Bim_%E2%80%90_Mt_Eccles_National_Park,_Victoria,_Australia_39.jpg" target="_blank" rel="noopener">Budj Bim photo ↗</a></p>
   </div></details>
 
+</section>
+
+<section>
+  <h2>About this app</h2>
+  <ul class="safe">
+    <li>Real, cited sources only. No invented quotes or faces.</li>
+    <li>First Nations content is marked “Draft, pending consultation”.</li>
+    <li>No pictures of people who have died, and no copies of rock art.</li>
+    <li>Your answers stay in this browser, on this device only. Nothing is sent anywhere.</li>
+  </ul>
   <div class="qr-end">
     <img src="assets/deep-time-qr.png" alt="QR code with the Deep Time emblem. It opens this investigation." width="380" height="380">
     <p class="small">Scan to open Deep Time.</p>
@@ -237,7 +295,7 @@
   <p>Sources: Nature (2017); PNAS (2018); Nature Human Behaviour (2021); Quaternary Science Reviews (2018); UNESCO World Heritage Centre (Willandra Lakes, Budj Bim, Murujuga); National Museum of Australia; Australian Museum; Australian Dictionary of Biography; University of Melbourne; The Conversation; NOAA ETOPO1. Photos via Wikimedia Commons (see Teacher note).</p>
 </footer>
 
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged picture"><button type="button" aria-label="Close">✕</button><img alt=""><p></p></div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged picture"><button type="button" aria-label="Close">✕</button><img alt=""><div class="lbsvg" hidden></div><p></p></div>
 <script src="assets/map-data.js"></script>
 <script src="assets/art.js"></script>
 <script src="assets/app.js"></script>

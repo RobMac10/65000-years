@@ -50,14 +50,14 @@ const STOPS=[
   cap2:"Simple drawing of how a stone eel trap works.",src:["bb"]}
 ];
 const pic=s=>s.img?`<button type="button" class="pic zoom" data-full="${s.img.src}" data-cap="${s.img.cap}"><img src="${s.img.src}" alt="${s.img.alt}" loading="lazy"></button><p class="cap">${s.img.cap} Tap to enlarge.</p>`
- :s.draw?`<div class="pic draw">${ART[s.draw]}</div><p class="cap">${s.cap||''}</p>`
- :s.mini?`<div class="pic draw">${mini(s.mini)}</div><p class="cap">${s.cap}</p>`:'';
+ :s.draw?`<button type="button" class="pic draw zoomart" data-cap="${s.cap||''}" aria-label="Drawing. Tap to enlarge.">${ART[s.draw]}</button><p class="cap">${s.cap||''}</p>`
+ :s.mini?`<button type="button" class="pic draw zoomart" data-cap="${s.cap}" aria-label="Map. Tap to enlarge.">${mini(s.mini)}</button><p class="cap">${s.cap}</p>`:'';
 function mini(which){const m=window.SAHUL;const vb=which==='tas'?'440 730 260 170':'440 160 260 230';
  return `<svg viewBox="${vb}" role="img" aria-label="${which==='tas'?'Map of Victoria and Tasmania':'Map of Cape York and New Guinea'}: pale land in the Ice Age, dark land today."><rect x="0" y="0" width="900" height="900" fill="#bfe0ea"/><path d="${m['-120']}" fill="#efd6a4"/><path d="${m['0']}" fill="#8b5a2e"/></svg>`;}
 function card(s){return `<div class="card" id="stop-${s.title.toLowerCase().replace(/[^a-z]+/g,'-')}"><span class="when">${s.when}</span>${pic(s)}<div class="inner">${s.draft?'<span class="draft">Draft, pending consultation</span>':''}<h3>${s.title}</h3>${s.text.map(t=>`<p>${t}</p>`).join('')}
- ${s.draw2?`<div class="pic draw" style="border-radius:12px;overflow:hidden">${ART[s.draw2]}</div><p class="cap" style="padding-left:0">${s.cap2}</p>`:''}
+ ${s.draw2?`<button type="button" class="pic draw zoomart" data-cap="${s.cap2}" style="border-radius:12px;overflow:hidden">${ART[s.draw2]}</button><p class="cap" style="padding-left:0">${s.cap2}</p>`:''}
  ${s.more?`<details class="more"><summary>More</summary>${s.more.map(t=>`<p>${t}</p>`).join('')}</details>`:''}
- ${s.map?`<p><a class="btn alt" href="#map" data-goto-sec="map">See the land shrink on the map</a></p>`:''}
+ ${s.map?`<p><a class="btn alt" href="#map-sec">See the land shrink on the map</a></p>`:''}
  ${btns(s.src)}</div></div>`;}
 // ribbon
 function buildRibbon(){const ol=$('#ribbon');let h='';
@@ -107,7 +107,6 @@ function initScale(){$$('.scale-tabs button').forEach(b=>b.addEventListener('cli
  $('#use50').addEventListener('change',e=>{total=e.target.checked?50000:65000;scale();});scale();}
 // map
 const FR=[['-120','The last Ice Age','The sea is about 120 metres lower. Australia, New Guinea and Tasmania are one land: Sahul.'],
- ['-60','The ice melts','The sea starts to rise and covers the edges of the land.'],
  ['-18','About 12,000 years ago','Tasmania becomes an island.'],
  ['-4','About 8,000 years ago','New Guinea is cut off.'],
  ['0','Today','The coast we know now.']];
@@ -118,20 +117,52 @@ function initMap(){const m=window.SAHUL,svg=$('#mapsvg');
   +`<path class="today" d="${m['0']}"/>`
   +Object.entries(PIN).map(([n,[dx,dy]])=>{const [x,y]=m.pts[n];return `<g class="pin"><circle cx="${x}" cy="${y}" r="9"/><text x="${x+dx}" y="${y+dy}">${n}</text></g>`}).join('')
   +`<text x="20" y="40" font-family="system-ui" font-size="22" fill="#33585f">Islands of Asia</text>`;
- const r=$('#mapr'),lbl=$('#maplbl');
- const show=i=>{$$('.land',svg).forEach(p=>p.setAttribute('opacity',+p.dataset.i===i?1:0));lbl.innerHTML=`<b>${FR[i][1]}.</b> ${FR[i][2]}`;r.value=i;r.setAttribute('aria-valuetext',FR[i][1]);};
- r.addEventListener('input',()=>show(+r.value));let t=null;
- $('#mapplay').addEventListener('click',e=>{if(t){clearInterval(t);t=null;e.target.textContent='▶ Play';return;}let i=0;show(0);e.target.textContent='■ Stop';t=setInterval(()=>{i++;if(i>4){clearInterval(t);t=null;e.target.textContent='▶ Play';return;}show(i);},1700);});
+ const r=$('#mapr'),lbl=$('#maplbl'),pb=$('#mapplay');let cur=0,t=null;
+ const show=i=>{cur=i;$$('.land',svg).forEach(p=>p.setAttribute('opacity',+p.dataset.i===i?1:0));lbl.innerHTML=`<b>${FR[i][1]}.</b> ${FR[i][2]}`;r.value=i;r.setAttribute('aria-valuetext',FR[i][1]);};
+ const stop=()=>{clearInterval(t);t=null;pb.textContent='▶ Play';};
+ r.addEventListener('input',()=>show(+r.value));r.addEventListener('pointerdown',()=>{if(t)stop();});
+ pb.addEventListener('click',()=>{if(t){stop();return;}let i=0;show(0);pb.textContent='■ Stop';t=setInterval(()=>{i++;if(i>=FR.length){stop();return;}show(i);},1700);});
+ svg.addEventListener('click',()=>lb({svg:svg.outerHTML.replace('id="mapsvg"',''),cap:FR[cur][1]+'. '+FR[cur][2]}));
  show(0);}
-// tabs
-function goto(id,push=true){const p=$('#'+id);if(!p)return;$$('.panel').forEach(x=>x.classList.toggle('on',x===p));$$('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===id));if(push)history.replaceState(null,'','#'+id);window.scrollTo({top:$('.tabs').offsetTop-4});}
-function initTabs(){$$('.tabs button').forEach(b=>b.addEventListener('click',()=>goto(b.dataset.tab)));
- document.addEventListener('click',e=>{const a=e.target.closest('[data-goto]');if(a){e.preventDefault();goto(a.dataset.goto);}
-  const s=e.target.closest('[data-goto-sec]');if(s){e.preventDefault();goto('read');setTimeout(()=>$('#'+s.dataset.gotoSec).scrollIntoView({behavior:'smooth'}),60);}
-  const z=e.target.closest('.zoom');if(z){e.preventDefault();lb(z.dataset.full,z.dataset.cap||'');}});
- const h=location.hash.slice(1);const map={map:'read',ribbon:'read'};if(h&&$('#'+(map[h]||h))?.classList.contains('panel'))goto(map[h]||h,false);}
+// timeline (drag to order)
+const EV=[
+ {id:'mad',t:'Scientists find stone tools and ochre deep in the sand at Madjedbebe, on Mirarr Country.',d:'About 65,000 years ago (Nature, 2017). Other scientists say about 50,000 to 55,000.'},
+ {id:'mun',t:'At Lake Mungo, a woman is cremated and her bones are buried. A man is buried with red ochre.',d:'40,000 to 42,000 years ago (National Museum of Australia).'},
+ {id:'kan',t:'A kangaroo about 2 metres long is painted on the ceiling of a rock shelter on Balanggarra Country.',d:'About 17,300 years ago (Nature Human Behaviour, 2021).'},
+ {id:'tas',t:'The rising sea covers the land bridge, and Tasmania becomes an island.',d:'About 12,000 years ago (National Museum of Australia).'},
+ {id:'bud',t:'The Gunditjmara build stone channels and ponds at Budj Bim to catch eels.',d:'For at least 6,600 years (UNESCO).'},
+ {id:'fle',t:'Eleven British ships, the First Fleet, arrive at Sydney Cove.',d:'26 January 1788 (National Museum of Australia).'}];
+function initTimeline(){const ORDER=EV.map(e=>e.id),tl=$('#tl'),msg=$('#tlmsg');
+ const render=ids=>{tl.innerHTML=ids.map(id=>{const e=EV.find(x=>x.id===id);return `<li data-id="${id}"><span class="grip" aria-hidden="true">⋮⋮</span><span class="txt">${e.t}<span class="date">${e.d}</span></span><span class="ud"><button type="button" class="up" aria-label="Move up">▲</button><button type="button" class="dn" aria-label="Move down">▼</button></span></li>`}).join('');};
+ const cur=()=>$$('li',tl).map(li=>li.dataset.id);
+ const clearMarks=()=>{$$('li',tl).forEach(li=>li.classList.remove('ok','no'));tl.classList.remove('reveal');msg.textContent='';};
+ const shuffle=()=>{let x;do{x=ORDER.slice().sort(()=>Math.random()-.5);}while(x.join()===ORDER.join());render(x);clearMarks();};
+ tl.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const li=b.closest('li');
+  if(b.classList.contains('up')&&li.previousElementSibling)tl.insertBefore(li,li.previousElementSibling);
+  if(b.classList.contains('dn')&&li.nextElementSibling)tl.insertBefore(li.nextElementSibling,li);clearMarks();b.focus();});
+ let drag=null;
+ tl.addEventListener('pointerdown',e=>{const gp=e.target.closest('.grip');if(!gp)return;e.preventDefault();const li=gp.closest('li');drag={li,id:e.pointerId,y0:e.clientY};li.classList.add('drag');gp.setPointerCapture(e.pointerId);clearMarks();});
+ tl.addEventListener('pointermove',e=>{if(!drag||e.pointerId!==drag.id)return;e.preventDefault();const li=drag.li;const place=()=>{li.style.transform=`translateY(${e.clientY-drag.y0}px)`;};place();
+  for(let k=0;k<6;k++){const r=li.getBoundingClientRect(),c=r.top+r.height/2,pv=li.previousElementSibling,nx=li.nextElementSibling;let moved=false;const top0=r.top;
+   if(pv){const pr=pv.getBoundingClientRect();if(c<pr.top+pr.height/2){tl.insertBefore(li,pv);moved=true;}}
+   if(!moved&&nx){const nr=nx.getBoundingClientRect();if(c>nr.top+nr.height/2){tl.insertBefore(nx,li);moved=true;}}
+   if(!moved)break;drag.y0+=li.getBoundingClientRect().top-top0;place();}
+  if(e.clientY<60)window.scrollBy(0,-12);else if(e.clientY>innerHeight-60)window.scrollBy(0,12);});
+ const end=e=>{if(!drag||e.pointerId!==drag.id)return;drag.li.style.transform='';drag.li.classList.remove('drag');drag=null;};
+ tl.addEventListener('pointerup',end);tl.addEventListener('pointercancel',end);
+ $('#tlcheck').addEventListener('click',()=>{const c=cur();let n=0;$$('li',tl).forEach((li,i)=>{const ok=c[i]===ORDER[i];if(ok)n++;li.classList.toggle('ok',ok);li.classList.toggle('no',!ok);});
+  msg.textContent=n===ORDER.length?'All in order. Now look at the gaps between the dates.':`${n} of ${ORDER.length} in the right place. Green cards are right. Try moving the red ones.`;});
+ $('#tlshow').addEventListener('click',()=>{render(ORDER);tl.classList.add('reveal');$$('li',tl).forEach(li=>li.classList.add('ok'));msg.textContent='This is the order, oldest at the top, with the dates from the sources.';});
+ $('#tlshuffle').addEventListener('click',shuffle);shuffle();}
+function initJump(){const links=$$('.jump a'),secs=links.map(l=>$(l.getAttribute('href')));let last=null,tk=false;
+ const upd=()=>{tk=false;const y=$('.jump').getBoundingClientRect().bottom+40;let cur=null;secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<=y)cur=i;});
+  if(cur!==last){links.forEach((l,i)=>l.classList.toggle('on',i===cur));if(cur!=null){const l=links[cur],n=$('.jump');n.scrollTo({left:l.offsetLeft-n.clientWidth/2+l.clientWidth/2,behavior:'smooth'});}last=cur;}};
+ window.addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(upd);}},{passive:true});upd();}
+// clicks: tap-to-enlarge pictures and drawings
+function initClicks(){document.addEventListener('click',e=>{const z=e.target.closest('.zoom');if(z){e.preventDefault();lb({src:z.dataset.full,cap:z.dataset.cap||''});return;}
+ const d=e.target.closest('.zoomart');if(d&&d.querySelector('svg')){e.preventDefault();lb({svg:d.querySelector('svg').outerHTML,cap:d.dataset.cap||''});}});}
 // lightbox
-function lb(src,cap){const L=$('#lb');$('img',L).src=src;$('p',L).textContent=cap;L.classList.add('on');$('button',L).focus();}
+function lb(o){const L=$('#lb'),I=$('img',L),S=$('.lbsvg',L);if(o.svg){I.hidden=true;S.hidden=false;S.innerHTML=o.svg;}else{S.hidden=true;S.innerHTML='';I.hidden=false;I.src=o.src;}$('p',L).textContent=o.cap||'';L.classList.add('on');$('button',L).focus();}
 function initLb(){const L=$('#lb');const close=()=>L.classList.remove('on');$('button',L).addEventListener('click',close);L.addEventListener('click',e=>{if(e.target===L)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});}
 // storage
 const KEY='deep-time-v1';
@@ -139,8 +170,8 @@ function initStore(){let d={};try{d=JSON.parse(localStorage.getItem(KEY)||'{}')}
  $$('[data-key]').forEach(el=>{if(d[el.dataset.key]!=null)el.value=d[el.dataset.key];el.addEventListener('input',()=>{d[el.dataset.key]=el.value;localStorage.setItem(KEY,JSON.stringify(d));});});
  $$('input[name=finding]').forEach(r=>{if(d.finding===r.value)r.checked=true;r.addEventListener('change',()=>{d.finding=r.value;localStorage.setItem(KEY,JSON.stringify(d));});});
  $('#clear').addEventListener('click',()=>{if(confirm('Clear all my answers?')){localStorage.removeItem(KEY);d={};$$('[data-key]').forEach(el=>el.value='');$$('input[name=finding]').forEach(r=>r.checked=false);}});
- $$('[data-print]').forEach(b=>b.addEventListener('click',()=>{const p=$('#'+b.dataset.print);p.classList.add('print');window.print();setTimeout(()=>p.classList.remove('print'),500);}));}
+ $$('[data-print]').forEach(b=>b.addEventListener('click',()=>{const p=$('#'+b.dataset.print);p.classList.add('print');document.body.classList.add('printing');window.print();setTimeout(()=>{p.classList.remove('print');document.body.classList.remove('printing');},500);}));}
 $$('.year-now').forEach(e=>e.textContent=YEAR);$$('.since-now').forEach(e=>e.textContent=SINCE);
-buildRibbon();initScale();initMap();initTabs();initLb();initStore();
+buildRibbon();initScale();initMap();initTimeline();initClicks();initLb();initJump();initStore();
 $('#jump-end').addEventListener('click',()=>$('#last-step').scrollIntoView({behavior:'smooth'}));
 })();
