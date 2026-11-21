@@ -20,32 +20,32 @@ const S={
 const btns=a=>`<p class="src-btns">${a.map(k=>`<a class="src-btn" href="${S[k][1]}" target="_blank" rel="noopener">${S[k][0]} ↗</a>`).join('')}</p>`;
 const photo=(src,alt,cap)=>({src,alt,cap});
 const STOPS=[
- {ka:65,when:"At least 65,000 years ago",title:"Madjedbebe",draft:1,draw:"shelter",
+ {ka:65,when:"At least 65,000 years ago",title:"Madjedbebe",draw:"shelter",
   text:["Madjedbebe is a rock shelter on Mirarr Country in Arnhem Land.","Scientists dug deep into the sand. They found stone tools, grinding stones and ochre.","In 2017 they said people were living there about 65,000 years ago."],
   more:["Other scientists looked at the same evidence in 2018. They think people came to this part of the world about 50,000 to 55,000 years ago.","The scientists thanked the Mirarr Traditional Owners for letting them do the work."],
   cap:"Drawing, not a picture of the real place. Deeper sand is older.",src:["nature","pnas"]},
- {ka:50,when:"At least 50,000 years",title:"Murujuga",draft:1,img:photo("assets/img/murujuga-nganjarli.jpg","Red rocks piled on a hillside at Nganjarli, Murujuga.","Rocks at Nganjarli, Murujuga. Photo: The editor next door, CC0, via Wikimedia Commons."),
-  text:["Murujuga is on the coast of Western Australia. Its red rocks hold one to two million carvings, called petroglyphs.","UNESCO says Ngarda-Ngarli have used and cared for this land and sea for at least 50,000 years."],
-  more:["Some carvings show animals that no longer live there.","Murujuga became a World Heritage place in 2025."],src:["muru"]},
- {ka:42,when:"40,000 to 42,000 years ago",title:"Lake Mungo",draft:1,img:photo("assets/img/mungo-walls-of-china.jpg","Pale sand cliffs at sunset at Lake Mungo.","The Walls of China at Lake Mungo. Photo: Kevinzoo45, CC BY-SA 4.0, via Wikimedia Commons."),
+ {ka:50,when:"At least 50,000 years",title:"Murujuga",
+  text:["Murujuga is on the coast of Western Australia.","UNESCO says Ngarda-Ngarli have used and cared for this land and sea for at least 50,000 years."],
+  more:["Murujuga became a World Heritage place in 2025."],src:["muru"]},
+ {ka:42,when:"40,000 to 42,000 years ago",title:"Lake Mungo",img:photo("assets/img/mungo-walls-of-china.jpg","Pale sand cliffs at sunset at Lake Mungo.","The Walls of China at Lake Mungo. Photo: Kevinzoo45, CC BY-SA 4.0, via Wikimedia Commons."),
   text:["Lake Mungo is a dry lake in south-western New South Wales.","In 1968 a scientist, Jim Bowler, found the bones of a woman. Her body had been cremated, which means burned, and then her bones were buried.","In 1974 he found a man. He had been buried with red ochre on his body.","They lived 40,000 to 42,000 years ago. They are the oldest human remains found in Australia."],
   more:["They are known as Mungo Lady and Mungo Man. Both have now been returned to Country, to the Paakantji, Ngiyampaa and Mutthi Mutthi peoples.","This card names people who have died. It shows no pictures of them."],src:["nmaMungo","adb","will"]},
  {ka:25,when:"About 25,000 years ago",title:"Giant animals",img:photo("assets/img/diprotodon-genyornis.jpg","Museum skeleton casts of a Diprotodon and a giant bird, Genyornis.","Casts of Diprotodon (front) and Genyornis skeletons in a museum. Photo: David Jackmanson, CC BY 4.0, via Wikimedia Commons."),
   text:["Giant animals called megafauna once lived here.","Diprotodon was the biggest marsupial ever. It weighed up to 2,700 kilograms.","It lived alongside people for thousands of years. The Australian Museum says it died out about 25,000 years ago."],
   more:["Scientists still argue about why the giant animals died out. Changes in climate, and people, may both have played a part."],src:["am"]},
- {ka:20,when:"About 20,000 years ago",title:"Footprints in the clay",draft:1,draw:"foot",
+ {ka:20,when:"About 20,000 years ago",title:"Footprints in the clay",draw:"foot",
   text:["Near Lake Mungo, nearly 460 old footprints were found in 2003.","They are about 20,000 years old."],cap:"Drawing, not the real footprints.",src:["nmaMungo"]},
  {ka:18,when:"The last Ice Age",title:"The sea is low",draw:"ice",map:1,
   text:["In the Ice Age, lots of sea water was frozen into ice.","The sea was about 120 metres lower than today.","Australia, New Guinea and Tasmania were one big land. Scientists call it Sahul.","From about 18,000 years ago, the ice melted and the sea began to rise."],src:["tas","conv"]},
- {ka:18,when:"About 17,300 years ago",title:"A painted kangaroo",draft:1,draw:"wasp",
-  text:["On Balanggarra Country in the Kimberley, a kangaroo about 2 metres long is painted on the ceiling of a rock shelter.","Scientists dated old mud-wasp nests under the paint and on top of it.","The painting is about 17,300 years old. It is the oldest dated rock painting found in Australia so far."],
+ {ka:18,when:"About 17,300 years ago",title:"A rock painting, dated",draw:"wasp",
+  text:["On Balanggarra Country in the Kimberley, scientists dated a rock painting by dating mud-wasp nests under the paint and on top of it.","A 2021 paper in Nature Human Behaviour reported the painting as about 17,300 years old, the oldest dated rock painting found in Australia so far."],
   more:["The painting is not shown here. The Balanggarra Traditional Owners asked that the exact places are not published."],cap:"Diagram of how the painting was dated. The painting must be younger than the nest under it, and older than the nest on top.",src:["finch","unimelb"]},
- {ka:12,when:"About 12,000 years ago",title:"Tasmania becomes an island",draft:1,mini:"tas",
+ {ka:12,when:"About 12,000 years ago",title:"Tasmania becomes an island",mini:"tas",
   text:["People walked to Tasmania about 40,000 years ago.","As the sea rose, it covered the land in between. By about 12,000 years ago Tasmania was an island.","Tasmania is known as Lutruwita by First Nations peoples from there."],cap:"Pale: land in the Ice Age. Dark: land today.",src:["tas"]},
  {ka:8,when:"About 8,000 years ago",title:"New Guinea is cut off",mini:"ng",
   text:["The sea kept rising.","About 8,000 years ago it covered the land between Cape York and New Guinea. The tops of the hills became the Torres Strait Islands."],cap:"Pale: land in the Ice Age. Dark: land today.",src:["williams","conv"]},
- {ka:7,when:"At least 6,600 years",title:"Budj Bim eel traps",draft:1,img:photo("assets/img/budj-bim-lake-surprise.jpg","A lake surrounded by trees and rocks at Budj Bim.","Lake Surprise, at Budj Bim, Victoria. Photo: Dhx1, CC0, via Wikimedia Commons."),draw2:"eel",
-  text:["Budj Bim is on Gunditjmara Country in south-west Victoria. Long ago its lava made fields of rock.","For at least 6,600 years, the Gunditjmara built stone channels, weirs and ponds there to catch and keep eels, called kooyang.","It is one of the oldest fish-farming systems in the world. It became a World Heritage place in 2019."],
+ {ka:7,when:"At least 6,600 years",title:"Budj Bim eel traps",img:photo("assets/img/budj-bim-lake-surprise.jpg","A lake surrounded by trees and rocks at Budj Bim.","Lake Surprise, at Budj Bim, Victoria. Photo: Dhx1, CC0, via Wikimedia Commons."),
+  text:["Budj Bim is on Gunditjmara Country in south-west Victoria. Long ago its lava made fields of rock.","For at least 6,600 years, the Gunditjmara built stone channels, weirs and ponds there to catch and keep eels.","It is one of the oldest fish-farming systems in the world. It became a World Heritage place in 2019."],
   more:["One part is Tae Rak, also called Lake Condah. It was drained in the 1950s. In 2010 a cultural weir was built and the water came back.","UNESCO writes: “For the Gunditjmara, deep time refers to the idea that they have always been there.”"],
   cap2:"Simple drawing of how a stone eel trap works.",src:["bb"]}
 ];
@@ -54,7 +54,7 @@ const pic=s=>s.img?`<button type="button" class="pic zoom" data-full="${s.img.sr
  :s.mini?`<button type="button" class="pic draw zoomart" data-cap="${s.cap}" aria-label="Map. Tap to enlarge.">${mini(s.mini)}</button><p class="cap">${s.cap}</p>`:'';
 function mini(which){const m=window.SAHUL;const vb=which==='tas'?'440 730 260 170':'440 160 260 230';
  return `<svg viewBox="${vb}" role="img" aria-label="${which==='tas'?'Map of Victoria and Tasmania':'Map of Cape York and New Guinea'}: pale land in the Ice Age, dark land today."><rect x="0" y="0" width="900" height="900" fill="#bfe0ea"/><path d="${m['-120']}" fill="#efd6a4"/><path d="${m['0']}" fill="#8b5a2e"/></svg>`;}
-function card(s){return `<div class="card" id="stop-${s.title.toLowerCase().replace(/[^a-z]+/g,'-')}"><span class="when">${s.when}</span>${pic(s)}<div class="inner">${s.draft?'<span class="draft">Draft, pending consultation</span>':''}<h3>${s.title}</h3>${s.text.map(t=>`<p>${t}</p>`).join('')}
+function card(s){return `<div class="card" id="stop-${s.title.toLowerCase().replace(/[^a-z]+/g,'-')}"><span class="when">${s.when}</span>${pic(s)}<div class="inner"><h3>${s.title}</h3>${s.text.map(t=>`<p>${t}</p>`).join('')}
  ${s.draw2?`<button type="button" class="pic draw zoomart" data-cap="${s.cap2}" style="border-radius:12px;overflow:hidden">${ART[s.draw2]}</button><p class="cap" style="padding-left:0">${s.cap2}</p>`:''}
  ${s.more?`<details class="more"><summary>More</summary>${s.more.map(t=>`<p>${t}</p>`).join('')}</details>`:''}
  ${s.map?`<p><a class="btn alt" href="#map-sec">See the land shrink on the map</a></p>`:''}
@@ -128,7 +128,7 @@ function initMap(){const m=window.SAHUL,svg=$('#mapsvg');
 const EV=[
  {id:'mad',t:'Scientists find stone tools and ochre deep in the sand at Madjedbebe, on Mirarr Country.',d:'About 65,000 years ago (Nature, 2017). Other scientists say about 50,000 to 55,000.'},
  {id:'mun',t:'At Lake Mungo, a woman is cremated and her bones are buried. A man is buried with red ochre.',d:'40,000 to 42,000 years ago (National Museum of Australia).'},
- {id:'kan',t:'A kangaroo about 2 metres long is painted on the ceiling of a rock shelter on Balanggarra Country.',d:'About 17,300 years ago (Nature Human Behaviour, 2021).'},
+ {id:'kan',t:'A rock painting on Balanggarra Country in the Kimberley is dated by mud-wasp nests.',d:'About 17,300 years ago (Nature Human Behaviour, 2021).'},
  {id:'tas',t:'The rising sea covers the land bridge, and Tasmania becomes an island.',d:'About 12,000 years ago (National Museum of Australia).'},
  {id:'bud',t:'The Gunditjmara build stone channels and ponds at Budj Bim to catch eels.',d:'For at least 6,600 years (UNESCO).'},
  {id:'fle',t:'Eleven British ships, the First Fleet, arrive at Sydney Cove.',d:'26 January 1788 (National Museum of Australia).'}];
