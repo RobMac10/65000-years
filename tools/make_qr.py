@@ -1,6 +1,6 @@
 import qrcode, cv2, numpy as np
 from PIL import Image, ImageDraw
-URL='https://robmac10.github.io/deep-time/'
+URL='https://robmac10.github.io/65000-years/'
 INK=(43,34,28); GOLD=(166,124,46)
 q=qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H, box_size=30, border=4)
 q.add_data(URL); q.make(fit=True)
