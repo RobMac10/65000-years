@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Deep Time · Reopen the Record</title>
+<meta name="description" content="A class investigation: how long have people lived in Australia, and how do we know?">
+<link rel="icon" href="assets/emblem.svg">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the investigation</a>
+<div class="banner"><strong>DRAFT, PENDING CONSULTATION.</strong> The First Nations content in this app has not yet been checked with the communities whose Country and history it describes. Aboriginal and Torres Strait Islander people are advised that this app names people who have died. It shows no pictures of them.</div>
+<header class="wrap top">
+  <div class="envelope">
+    <img src="assets/emblem.svg" alt="" width="96" height="96">
+    <div>
+      <p class="env-eyebrow">Reopen the Record · Class investigation</p>
+      <h1>Deep Time</h1>
+      <p class="env-sub">How long have people lived here, and how do we know?</p>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" data-tab="opener" aria-selected="true">1. Opener</button>
+    <button role="tab" data-tab="read" aria-selected="false">2. Read</button>
+    <button role="tab" data-tab="ask" aria-selected="false">3. Ask</button>
+    <button role="tab" data-tab="decide" aria-selected="false">4. Decide</button>
+    <button role="tab" data-tab="sleuth" aria-selected="false">5. Super Sleuths <small>(optional)</small></button>
+  </nav>
+</header>
+
+<main id="main" class="wrap">
+
+<section id="opener" class="panel on" role="tabpanel">
+  <span class="draft">Draft, pending consultation</span>
+  <div class="opener">
+    <p>A handful of sand.</p>
+    <p>It comes from deep in the ground at Madjedbebe, a rock shelter on Mirarr Country in Arnhem Land.</p>
+    <div id="opener-art" class="sandglass"></div>
+    <p>Scientists kept the sand in the dark. A buried grain of sand slowly stores up a tiny charge. Sunlight wipes the charge away. So the charge shows roughly how long ago the grain last saw the sun.</p>
+    <p>In 2017 the scientists published what the sand showed.</p>
+    <p class="big">How long have people lived in Australia?</p>
+  </div>
+  <div class="care"><strong>Before you start.</strong> This investigation is about the Countries of many First Nations peoples. Each card names whose Country a place is. Some places and stories are not shown, out of respect for the people they belong to.</div>
+  <p class="next"><button type="button" class="btn big" data-goto="read">Start the time walk</button></p>
+</section>
+
+<section id="read" class="panel" role="tabpanel">
+  <h2>How long is 65,000 years?</h2>
+  <p>Scientists say people have lived in Australia for at least 65,000 years. Some scientists say about 50,000 to 55,000 years. Pick a way to see it.</p>
+  <div class="scale-tabs" role="group" aria-label="Ways to see the time">
+    <button type="button" data-mode="steps" aria-pressed="true">👣 Steps</button>
+    <button type="button" data-mode="day" aria-pressed="false">🕛 One day</button>
+    <button type="button" data-mode="walk" aria-pressed="false">📏 A long walk</button>
+  </div>
+  <div class="scale-view" id="scale-view" aria-live="polite"></div>
+  <label class="switch"><input type="checkbox" id="use50"> Show it with 50,000 years instead</label>
+
+  <h2 id="ribbon-head">The time walk</h2>
+  <p>Scroll down. Every block is 1,000 years. The top is the oldest. Tap a photo to make it bigger.</p>
+  <div class="ribbon-wrap">
+    <div class="counter" id="counter" aria-live="off"><span><b>About 65,000 years ago</b><br><small>Step 1 of 65</small></span><button type="button" class="btn" id="jump-end">Jump to 1788 ↓</button></div>
+    <ol class="ribbon" id="ribbon"></ol>
+  </div>
+
+  <h2 id="map">The shrinking land</h2>
+  <p>Slide or press Play to watch the sea rise.</p>
+  <div class="mapcard">
+    <p class="maplbl" id="maplbl" aria-live="polite"></p>
+    <svg class="mapsvg" id="mapsvg" role="img" aria-label="Map of Australia, New Guinea and Tasmania. The land shrinks as the sea rises."></svg>
+    <div class="mapctl"><button type="button" class="btn" id="mapplay">▶ Play</button><input type="range" id="mapr" min="0" max="4" step="1" value="0" aria-label="Time, from the Ice Age to today"></div>
+    <div class="legend"><span><i style="background:#c98f4c"></i>Land at that time</span><span><i style="background:none;border:2px dashed #1d3b4a;height:10px"></i>Coast today</span><span><i style="background:#b3261e;border-radius:50%;width:12px"></i>Places in the time walk</span></div>
+    <p class="small">This map is drawn from today’s sea-floor depths. It shows the idea, not the exact coast at each time.</p>
+    <p class="src-btns"><a class="src-btn" href="https://www.nma.gov.au/defining-moments/resources/separation-of-tasmania" target="_blank" rel="noopener">National Museum of Australia ↗</a><a class="src-btn" href="https://doi.org/10.1016/j.quascirev.2017.11.030" target="_blank" rel="noopener">Quaternary Science Reviews, 2018 ↗</a><a class="src-btn" href="https://www.ncei.noaa.gov/products/etopo-global-relief-model" target="_blank" rel="noopener">Sea-floor data (NOAA) ↗</a></p>
+  </div>
+
+  <h2>What is agreed</h2>
+  <div class="box">
+    <span class="draft">Draft, pending consultation</span>
+    <ul>
+      <li>All the sources in this app say First Nations people have lived in Australia for tens of thousands of years.</li>
+      <li>Scientists do not agree on exactly when people first arrived. One team says about 65,000 years ago. Another team says about 50,000 to 55,000 years ago.</li>
+      <li>The sea was much lower in the last Ice Age. Australia, New Guinea and Tasmania were one land.</li>
+      <li>The First Fleet arrived in 1788. That is <span class="since-now"></span> years ago.</li>
+    </ul>
+  </div>
+  <p class="next"><button type="button" class="btn big" data-goto="ask">Ask the witnesses</button></p>
+</section>
+
+<section id="ask" class="panel" role="tabpanel">
+  <h2>Ask three witnesses</h2>
+  <p>Ask every witness the same three questions.</p>
+  <ol class="qs"><li>1. What did they say they saw?</li><li>2. Could they really have seen it?</li><li>3. Why might they say it?</li></ol>
+  <p class="small">The pictures are silhouettes or drawings. No face has been invented. Tap a picture to make it bigger.</p>
+
+  <article class="witness" id="w-dig">
+    <figure><button type="button" class="zoom" data-full="assets/img/madjedbebe-team.png" data-cap="Silhouette. Not a likeness."><img src="assets/img/madjedbebe-team.png" alt="Silhouette of three people labelled The Madjedbebe team, 2017. Not a likeness."></button><figcaption>Silhouette. Not a likeness.</figcaption></figure>
+    <div><span class="draft">Draft, pending consultation</span><h3>The Madjedbebe team</h3><p class="role">Scientists who dug at Madjedbebe · 2017</p>
+      <blockquote>“Human occupation began around 65,000 years ago …”</blockquote>
+      <p class="plain">In plain words: people were living at Madjedbebe around 65,000 years ago.</p>
+      <p class="src">Source. Chris Clarkson, Zenobia Jacobs, Ben Marwick and others, “Human occupation of northern Australia by 65,000 years ago”, Nature 547 (2017), 306–310.</p>
+      <p class="src-btns"><a class="src-btn" href="https://doi.org/10.1038/nature22968" target="_blank" rel="noopener">See the source (Nature) ↗</a></p>
+      <label class="field" for="q-dig-saw">1. What did they say they saw?</label><textarea id="q-dig-saw" data-key="q-dig-saw" rows="2"></textarea>
+      <label class="field" for="q-dig-could">2. Could they really have seen it?</label><textarea id="q-dig-could" data-key="q-dig-could" rows="2"></textarea>
+      <label class="field" for="q-dig-why">3. Why might they say it?</label><textarea id="q-dig-why" data-key="q-dig-why" rows="2"></textarea>
+    </div>
+  </article>
+
+  <article class="witness" id="w-review">
+    <figure><button type="button" class="zoom" data-full="assets/img/review-team.png" data-cap="Silhouette. Not a likeness."><img src="assets/img/review-team.png" alt="Silhouette of three people labelled The 2018 review team. Not a likeness."></button><figcaption>Silhouette. Not a likeness.</figcaption></figure>
+    <div><span class="draft">Draft, pending consultation</span><h3>The 2018 review team</h3><p class="role">Scientists who checked the Madjedbebe reports · 2018</p>
+      <blockquote>“We find that an age estimate of &gt;50 ka for this site is unlikely to be valid.”</blockquote>
+      <p class="plain">In plain words: they think “more than 50,000 years” for Madjedbebe is unlikely to be right. (“ka” means a thousand years.)</p>
+      <p class="src">Source. James F. O’Connell, Jim Allen, Martin A. J. Williams and others, “When did Homo sapiens first reach Southeast Asia and Sahul?”, PNAS 115, no. 34 (2018), 8482–8490.</p>
+      <p class="src-btns"><a class="src-btn" href="https://doi.org/10.1073/pnas.1808385115" target="_blank" rel="noopener">See the source (PNAS) ↗</a></p>
+      <label class="field" for="q-review-saw">1. What did they say they saw?</label><textarea id="q-review-saw" data-key="q-review-saw" rows="2"></textarea>
+      <label class="field" for="q-review-could">2. Could they really have seen it?</label><textarea id="q-review-could" data-key="q-review-could" rows="2"></textarea>
+      <label class="field" for="q-review-why">3. Why might they say it?</label><textarea id="q-review-why" data-key="q-review-why" rows="2"></textarea>
+    </div>
+  </article>
+
+  <article class="witness" id="w-budj">
+    <figure><div id="w-budj-art"></div><figcaption>Drawing of how a stone eel trap works. Not a picture of a real trap.</figcaption></figure>
+    <div><span class="draft">Draft, pending consultation</span><h3>The Budj Bim World Heritage listing</h3><p class="role">UNESCO World Heritage Committee · 2019</p>
+      <blockquote>“For the Gunditjmara, deep time refers to the idea that they have always been there. From an archaeological perspective, deep time refers to a period of at least 32,000 years that Aboriginal people have lived in the Budj Bim Cultural Landscape.”</blockquote>
+      <p class="plain">In plain words: the Gunditjmara say they have always been there. Archaeologists say people have lived there for at least 32,000 years.</p>
+      <p class="src">Source. UNESCO World Heritage Centre, “Budj Bim Cultural Landscape”, inscribed 2019, Statement of Outstanding Universal Value.</p>
+      <p class="src-btns"><a class="src-btn" href="https://whc.unesco.org/en/list/1577/" target="_blank" rel="noopener">See the source (UNESCO) ↗</a></p>
+      <label class="field" for="q-budj-saw">1. What did they say they saw?</label><textarea id="q-budj-saw" data-key="q-budj-saw" rows="2"></textarea>
+      <label class="field" for="q-budj-could">2. Could they really have seen it?</label><textarea id="q-budj-could" data-key="q-budj-could" rows="2"></textarea>
+      <label class="field" for="q-budj-why">3. Why might they say it?</label><textarea id="q-budj-why" data-key="q-budj-why" rows="2"></textarea>
+    </div>
+  </article>
+  <p class="next"><button type="button" class="btn big" data-goto="decide">Make my decision</button></p>
+</section>
+
+<section id="decide" class="panel" role="tabpanel">
+  <h2>My decision</h2>
+  <div class="box">
+    <p><strong>How long have people lived in Australia, and how do we know?</strong></p>
+    <fieldset class="choices"><legend>Pick the answer closest to yours.</legend>
+      <label><input type="radio" name="finding" value="65"> At least 65,000 years.</label>
+      <label><input type="radio" name="finding" value="50"> About 50,000 to 55,000 years.</label>
+      <label><input type="radio" name="finding" value="tens"> Tens of thousands of years, but the experts do not agree on the exact number.</label>
+      <label><input type="radio" name="finding" value="cantknow"> We can’t know the exact number from these sources.</label>
+      <label><input type="radio" name="finding" value="other"> My own answer.</label>
+    </fieldset>
+    <label class="field" for="reason">My answer, and why</label>
+    <textarea id="reason" data-key="reason" rows="5"></textarea>
+    <label class="field" for="evidence">One piece of evidence I used</label>
+    <textarea id="evidence" data-key="evidence" rows="3"></textarea>
+    <div class="tools"><button type="button" class="btn alt" data-print="decide">Print my decision</button><button type="button" class="btn alt" id="clear">Clear my answers</button></div>
+  </div>
+  <p class="small">Your answers stay on this device only.</p>
+  <p class="next"><button type="button" class="btn alt big" data-goto="sleuth">Optional: Super Sleuths</button></p>
+</section>
+
+<section id="sleuth" class="panel" role="tabpanel">
+  <h2>Super Sleuths</h2>
+  <p>Optional. Go further only if you want to.</p>
+  <details class="sec" open><summary>👣 Make a time walk</summary><div class="body">
+    <p>Go outside with chalk. Take 65 big steps. Each step is 1,000 years.</p>
+    <p>Chalk a mark for each place in the time walk. Lake Mungo is about 23 steps from the start. Budj Bim is about 58 steps. Where does 1788 go?</p>
+  </div></details>
+  <details class="sec"><summary>⏳ The sand clock</summary><div class="body">
+    <p>A buried grain of sand slowly stores up a tiny charge. Sunlight wipes it away. Scientists measure the charge in the dark to work out how long ago the grain last saw the sun. This is called OSL, short for optically stimulated luminescence.</p>
+    <p>This tells when the sand was buried. It does not tell who left the tools in it.</p>
+    <p class="src-btns"><a class="src-btn" href="https://doi.org/10.1038/nature22968" target="_blank" rel="noopener">Nature, 2017 ↗</a></p>
+  </div></details>
+  <details class="sec"><summary>🐝 The wasp-nest clock</summary><div class="body">
+    <div id="sleuth-wasp" style="max-width:520px"></div>
+    <p>Mud wasps build nests on rock walls. Scientists can date tiny bits of old nests. A nest under a painting is older than the painting. A nest on top is younger. That is how the Kimberley kangaroo painting was dated to about 17,300 years ago.</p>
+    <p class="src-btns"><a class="src-btn" href="https://doi.org/10.1038/s41562-020-01041-0" target="_blank" rel="noopener">Nature Human Behaviour, 2021 ↗</a><a class="src-btn" href="https://www.unimelb.edu.au/newsroom/news/2021/february/australias-oldest-rock-painting-is-a-kangaroo" target="_blank" rel="noopener">University of Melbourne ↗</a></p>
+  </div></details>
+  <details class="sec"><summary>🏝️ Alone on an island</summary><div class="body">
+    <p>The National Museum of Australia quotes two historians about the people of Tasmania after the sea rose:</p>
+    <blockquote>“They were alone for five hundred generations, knowing no other people in the world, living with the knowledge and beliefs derived from those they had known before the sea surrounded them.”</blockquote>
+    <p class="src">Source. Iain Davidson and David Roberts, “14 000 BP – On Being Alone: The Isolation of Tasmania”, in Turning Points in Australian History (2009), quoted by the National Museum of Australia.</p>
+    <p class="src-btns"><a class="src-btn" href="https://www.nma.gov.au/defining-moments/resources/separation-of-tasmania" target="_blank" rel="noopener">National Museum of Australia ↗</a></p>
+  </div></details>
+  <details class="sec"><summary>🗺️ Whose Country is your school on?</summary><div class="body">
+    <p>Australia is made up of many First Nations Countries, each with its own peoples and languages. Look at the AIATSIS map with your teacher. Then check with your local community, because the map is a guide only.</p>
+    <p class="src-btns"><a class="src-btn" href="https://aiatsis.gov.au/explore/map-indigenous-australia" target="_blank" rel="noopener">AIATSIS map of Indigenous Australia ↗</a></p>
+  </div></details>
+  <details class="sec"><summary>🔤 Word bank</summary><div class="body"><ul>
+    <li><b>Sahul</b>: scientists’ name for the one big land of Australia, New Guinea and Tasmania when the sea was low.</li>
+    <li><b>Megafauna</b>: very large animals, such as Diprotodon.</li>
+    <li><b>Petroglyph</b>: a picture carved into rock.</li>
+    <li><b>Kooyang</b>: the Gunditjmara word for the short-finned eel, used in the UNESCO listing.</li>
+    <li><b>Country</b>: the land, waters and sky that a First Nations people belong to and care for.</li>
+    <li><b>Archaeologist</b>: a scientist who studies the past from things people left behind.</li>
+  </ul></div></details>
+
+  <details class="sec" id="teacher-note"><summary>Teacher note</summary><div class="body">
+    <p><strong>Purpose.</strong> A visual entry point to deep time for younger students. Students compare the scale of First Nations history with the period since 1788, read the evidence, question three witnesses and record a decision, including “We can’t know”. It sits before the Before the Ships investigation and uses the same facts and sources.</p>
+    <p><strong>Curriculum links (Australian Curriculum v9, Year 4 HASS).</strong></p>
+    <ul>
+      <li>AC9HS4K01: the diversity of First Nations Australians, their social organisation and their continuous connection to Country/Place.</li>
+      <li>AC9HS4K06: sustainable use and management of resources, including the custodial responsibility First Nations Australians have for Country/Place (Budj Bim, Tae Rak).</li>
+      <li>AC9HS4S02: locate, collect and record information from a range of sources, including annotated timelines and maps.</li>
+      <li>AC9HS4S03 and AC9HS4S04: interpret information in different formats; analyse information and identify perspectives.</li>
+      <li>AC9HS4S05: draw conclusions based on analysis of information.</li>
+    </ul>
+    <p class="src-btns"><a class="src-btn" href="https://v9.australiancurriculum.edu.au/f-10-curriculum/learning-areas/humanities-and-social-sciences/year-4" target="_blank" rel="noopener">Australian Curriculum v9 ↗</a></p>
+    <p><strong>Consultation.</strong> Draft, pending consultation, following the AIATSIS Code of Ethics (2020). Communities to consult: the Mirarr and the Gundjeihmi Aboriginal Corporation (Madjedbebe); Ngarda-Ngarli and the Murujuga Aboriginal Corporation (Murujuga); the Paakantji, Ngiyampaa and Mutthi Mutthi peoples (Willandra Lakes, Lake Mungo); the Balanggarra Aboriginal Corporation (Kimberley); Tasmanian Aboriginal communities (Lutruwita); Torres Strait Islander communities; the Gunditjmara and the Gunditj Mirring Traditional Owners Aboriginal Corporation (Budj Bim, Tae Rak). No First Nations words are invented; the words used (Lutruwita, kooyang, Tae Rak, Budj Bim, Ngarda-Ngarli) are as given by the National Museum of Australia and UNESCO.</p>
+    <p class="src-btns"><a class="src-btn" href="https://aiatsis.gov.au/research/ethical-research/code-ethics" target="_blank" rel="noopener">AIATSIS Code of Ethics ↗</a></p>
+    <p><strong>Cultural care.</strong> Mungo Lady and Mungo Man are named but not pictured; no images of human remains or deceased people are used. The Kimberley kangaroo painting is not reproduced, and no rock art is redrawn; the Murujuga photograph is a general view of a public site from Wikimedia Commons and should be confirmed with the Murujuga Aboriginal Corporation before publication. The drawings are simple diagrams with no people.</p>
+    <p><strong>Points to flag with students.</strong></p>
+    <ul>
+      <li>Madjedbebe: about 65,000 years (Clarkson et al., Nature, 2017) against the 2018 review (O’Connell et al., PNAS), which puts arrival in the region at about 50,000–55,000 years. The debate continues in later papers.</li>
+      <li>Lake Mungo: the burials are dated 40,000–42,000 years (National Museum of Australia). UNESCO’s Willandra Lakes listing gives evidence of occupation from 45,000–60,000 years ago. These describe different evidence.</li>
+      <li>Diprotodon: the Australian Museum gives extinction at about 25,000 years ago. Other studies give different dates, and the causes are debated.</li>
+      <li>Tasmania: the National Museum of Australia gives about 12,000 years; Williams et al. (2018) give about 11,000 years for the flooding of Bass Strait.</li>
+      <li>The Murujuga and Budj Bim cards give “at least” ages from UNESCO. The time walk places them at that age; the cultures continue to today.</li>
+      <li>The map is generated from NOAA ETOPO1 sea-floor depths sampled every 0.05 degrees. The first frame matches a sea level about 120 m lower. The Tasmania and New Guinea frames are matched to those events, not to exact past sea levels, because the coarse grid does not show the shallow straits accurately. Present-day depths also differ from past land heights.</li>
+      <li>The time comparisons use “at least 65,000 years” and the current year, so the numbers update each year. The toggle shows the 50,000-year version.</li>
+      <li>The witnesses are documents. The third witness reports a Gunditjmara view in UNESCO’s words, not in Gunditjmara people’s own words.</li>
+    </ul>
+    <p><strong>Images.</strong> Murujuga: “Nganjarli Murujuga Rock Art 01”, The editor next door, CC0. Lake Mungo: “Mungo National Park Wall of China”, Kevinzoo45, CC BY-SA 4.0. Diprotodon and Genyornis: “Megafauna – Diprotodon and Genyornis”, David Jackmanson, CC BY 4.0. Budj Bim: “Budj Bim – Mt Eccles National Park, Victoria, Australia 39”, Dhx1, CC0. All via Wikimedia Commons. Silhouettes and drawings were made for the Reopen the Record apps.</p>
+    <p class="src-btns">
+      <a class="src-btn" href="https://commons.wikimedia.org/wiki/File:Nganjarli_Murujuga_Rock_Art_01.jpg" target="_blank" rel="noopener">Murujuga photo ↗</a>
+      <a class="src-btn" href="https://commons.wikimedia.org/wiki/File:Mungo_National_Park_Wall_of_China.jpg" target="_blank" rel="noopener">Lake Mungo photo ↗</a>
+      <a class="src-btn" href="https://commons.wikimedia.org/wiki/File:Megafauna_-_Diprotodon_and_Genyornis.png" target="_blank" rel="noopener">Diprotodon photo ↗</a>
+      <a class="src-btn" href="https://commons.wikimedia.org/wiki/File:Budj_Bim_%E2%80%90_Mt_Eccles_National_Park,_Victoria,_Australia_39.jpg" target="_blank" rel="noopener">Budj Bim photo ↗</a></p>
+  </div></details>
+
+  <div class="qr-end">
+    <img src="assets/deep-time-qr.png" alt="QR code with the Deep Time emblem. It opens this investigation." width="380" height="380">
+    <p class="small">Scan to open Deep Time.</p>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <p><strong>Deep Time</strong> · Reopen the Record · Draft, pending consultation.</p>
+  <p>Sources: Nature (2017); PNAS (2018); Nature Human Behaviour (2021); Quaternary Science Reviews (2018); UNESCO World Heritage Centre (Willandra Lakes, Budj Bim, Murujuga); National Museum of Australia; Australian Museum; Australian Dictionary of Biography; University of Melbourne; The Conversation; NOAA ETOPO1. Photos via Wikimedia Commons (see Teacher note).</p>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged picture"><button type="button" aria-label="Close">✕</button><img alt=""><p></p></div>
+<script src="assets/map-data.js"></script>
+<script src="assets/art.js"></script>
+<script src="assets/app.js"></script>
+<script>document.getElementById('opener-art').innerHTML=ART.shelter;document.getElementById('w-budj-art').innerHTML=ART.eel;document.getElementById('sleuth-wasp').innerHTML=ART.wasp;</script>
+</body>
+</html>
